@@ -221,11 +221,11 @@ def main():
 
 parser = argparse.ArgumentParser(prog='xkcd-dl', description='Run `xkcd-dl --update-db` if running for the first time.')
 parser.add_argument('-u', '--update-db', action='store_true', help='Update the database')
-parser.add_argument('-l', '--download-latest', action='store_true', help='Download most recent comic') 
 group = parser.add_mutually_exclusive_group()
+group.add_argument('-l', '--download-latest', action='store_true', help='Download most recent comic') 
 group.add_argument('-d', '--download', help='Download specified comic by number', type=int, metavar='XKCD_NUM')
 group.add_argument('-a', '--download-all', action='store_true', help='Download all comics')
-parser.add_argument('-r', '--download-range', nargs='*', help='Download specified range', type=int) 
+group.add_argument('-r', '--download-range', nargs='*', help='Download specified range', type=int) 
 parser.add_argument('-v', '--version', action='version', version='%(prog)s 0.0.7')
 parser.add_argument('-P', '--path', help='set path')
 
